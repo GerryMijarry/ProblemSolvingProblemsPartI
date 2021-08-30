@@ -1,4 +1,4 @@
-// TODO Reverse a string
+// Reverse a string
 // Write code that takes a string as input and returns the string reversed
 // i.e. “Hello” will be returned as “olleH”
 
@@ -14,9 +14,65 @@ console.log(reverseAString("hello"));
 
 // TODO Capitalize letter
 // Write code that takes a string as input and capitalize the first letter of each word. Words will be separated by only one space. i.e. “hello world” should be outputted as “Hello World”
-// Compress a string of characters
+
+function capitalizeEveryWordOfAString (string) {
+    let firstLetterCapitalizedString = "";
+    
+    for(let j = 0; j < string.length; j++) {
+        if (j = 0) {
+            firstLetterCapitalizedString.push(string[j].toUpperCase());   
+        } else if (j > 0) {
+            if (string[j - 1]  = " ") {
+                firstLetterCapitalizedString.push(string[j].toUpperCase());
+            }
+        }
+        firstLetterCapitalizedString.push(string[j]);
+    }
+    return firstLetterCapitalizedString;
+}
+
+// ! Done with built in functions
+
+function capitalizeEveryWordOfAStringLib (string) {
+    let words = string.split(" ");
+
+    for (let i = 0; i < words.length; i++) {
+
+        words[i] = words[i][0].toUpperCase() + words[i].substr(1);
+
+    }
+
+    return words.join(" ");
+}
+
+
+console.log(capitalizeEveryWordOfAStringLib("hello this is a test"));
+
+// TODO Compress a string of characters
 // For example, an input of "aaabbbbbccccaacccbbbaaabbbaaa" would compress to "3a5b4c2a3c3b3a3b3a"
 
+function compressAString (string) {
+    
+    let tempArray = string.split("");
+    let letters = [];
+    let counter = 1;
+    let compressedString = "";
+
+    for (let i = 0; i < tempArray.length; i++) {
+        if (tempArray[i] == tempArray[i+1]) {
+            counter++
+        } else {
+            let value = `${counter}${tempArray[i]}`;
+            letters.push(value);
+            counter = 1;
+        }
+    }
+    compressedString = letters.toString();
+    return compressedString.split(",").join("");
+    
+}
+
+console.log(compressAString("aaabbbbbccccaacccbbbaaabbbaaa"));
 
 
 // TODO BONUS CHALLENGE: Palindrome
