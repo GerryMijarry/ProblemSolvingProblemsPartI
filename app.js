@@ -19,17 +19,21 @@ function capitalizeEveryWordOfAString (string) {
     let firstLetterCapitalizedString = "";
     
     for(let j = 0; j < string.length; j++) {
-        if (j = 0) {
-            firstLetterCapitalizedString.push(string[j].toUpperCase());   
+        if (j == 0) {
+            firstLetterCapitalizedString += string[j].toUpperCase();   
         } else if (j > 0) {
-            if (string[j - 1]  = " ") {
-                firstLetterCapitalizedString.push(string[j].toUpperCase());
+            if (string[j - 1] == " ") {
+                firstLetterCapitalizedString += string[j].toUpperCase();
+            } else {
+                firstLetterCapitalizedString += string[j];
             }
-        }
-        firstLetterCapitalizedString.push(string[j]);
+            
+        } 
     }
     return firstLetterCapitalizedString;
 }
+
+console.log(capitalizeEveryWordOfAString("hello this is a test"));
 
 // ! Done with built in functions
 
