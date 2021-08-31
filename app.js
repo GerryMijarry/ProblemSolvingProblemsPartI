@@ -82,3 +82,20 @@ console.log(compressAString("aaabbbbbccccaacccbbbaaabbbaaa"));
 // TODO BONUS CHALLENGE: Palindrome
 // A word, phrase, or sequence that reads the same backward as forward i.e. madam
 // Write code that takes a user input and checks to see if it is a Palindrome and reports the result
+
+function isItAPalindrome (string) {
+    var len = Math.floor(string.length / 2);
+        
+    for (var i = 0; i < len; i++)
+        if (string[i] !== string[string.length - i - 1])
+            return false;
+        return true;
+
+}
+
+
+
+
+let input = prompt("Enter a word and I'll tell you if its a palindrome.");
+
+console.log(isItAPalindrome(input));
